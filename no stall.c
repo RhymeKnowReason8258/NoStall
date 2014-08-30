@@ -4,7 +4,7 @@ task main()
 {
 nMotorEncoder[motorB] = 0;
 
-	while(true)
+	while(true != false)
 	{
 		motor[motorB] = 50;
 		MEN = nMotorEncoder[motorB];
