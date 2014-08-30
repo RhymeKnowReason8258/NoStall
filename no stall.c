@@ -4,8 +4,8 @@ task main()
 {
 nMotorEncoder[motorB] = 0;
 
-	while(true == true)
 
+	while(true)
 	{
 		motor[motorB] = 50;
 		MEN = nMotorEncoder[motorB];
@@ -20,4 +20,3 @@ nMotorEncoder[motorB] = 0;
 	}
 
 }
-//Noah was here.
