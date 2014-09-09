@@ -10,8 +10,9 @@ task main()
 {
 
 	//setting the encoders to 0
-	nMotorEncoder[motorB] = 0;
-	motor[RightDrive] = 50;
+	nMotorEncoder[RightDrive] = 0;
+	motor[RightDrive] = 50;	//starts motors
+	wait1Msec(1000);
 
 	while(true)
 	{
@@ -20,20 +21,17 @@ task main()
 		//asking if the motor power is greater than 0
 		if(motor[RightDrive] > 15 || motor[RightDrive] < -15)
 		{
+			wait1Msec(1000);
 			//asking whether the variable MEN (motor encoder number) is within 80 encoder ticks. of the encoder value
-			if(nMotorEncoder[RightDrive] < MEN + 40 || nMotorEncoder[RightDrive] > MEN - 40)
+			if(nMotorEncoder[RightDrive] < MEN + 100 || nMotorEncoder[RightDrive] > MEN - 100)//nME !=
 			{
 				//turning the motor off
 				motor[RightDrive] = 0;
-				//waiting for 3 seconds so we can debug easier
 			}
 			else
 			{
 				motor[RightDrive] = 50;
 			}
-		}
-		//taking another reading, so if we use this, it will be able to repeat
-		MEN = nMotorEncoder[RightDrive];
-	}
-
+		}//end first if
+	}//end while
 }
